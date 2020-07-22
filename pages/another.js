@@ -2,11 +2,11 @@ import Head from 'next/head';
 import { Link } from 'utils/i18n';
 import NextLink from 'next/link'
 
-export default function Another({ title }) {
+export default function Another() {
     return (
         <div>
             <Head>
-                <title>{title}</title>
+                <title>Another</title>
             </Head>
             <p>
                 <Link href="/"><a>i18nLink: Go Index</a></Link>
