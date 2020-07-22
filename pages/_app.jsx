@@ -1,3 +1,4 @@
+import App from 'next/app';
 import { appWithTranslation } from 'utils/i18n';
 
 function MyApp({ Component, pageProps }) {
@@ -9,11 +10,11 @@ function MyApp({ Component, pageProps }) {
 // perform automatic static optimization, causing every page in your app to
 // be server-side rendered.
 //
-// MyApp.getInitialProps = async (appContext) => {
-//   // calls page's `getInitialProps` and fills `appProps.pageProps`
-//   const appProps = await App.getInitialProps(appContext);
-//
-//   return { ...appProps }
-// }
+MyApp.getInitialProps = async (appContext) => {
+    // calls page's `getInitialProps` and fills `appProps.pageProps`
+    const appProps = await App.getInitialProps(appContext);
+    appProps.pageProps.namespacesRequired = appProps.pageProps.namespacesRequired || ['common'];
+    return { ...appProps }
+}
 
 export default appWithTranslation(MyApp);

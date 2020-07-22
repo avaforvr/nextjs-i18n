@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { Link } from 'utils/i18n';
+import NextLink from 'next/link'
 
 export default function Home({ title }) {
     return (
@@ -7,7 +8,12 @@ export default function Home({ title }) {
             <Head>
                 <title>{title}</title>
             </Head>
-            <Link href="/another">Go Another</Link>
+            <p>
+                <Link href="/another"><a>i18nLink: Go Another</a></Link>
+            </p>
+            <p>
+                <NextLink href="/another"><a>NextLink: Go Another</a></NextLink>
+            </p>
         </div>
     )
 }
